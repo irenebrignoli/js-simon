@@ -29,12 +29,15 @@ for(let i = 1; i<=5; i++){
 console.log(arrayNumbers);
 numbersDom.innerHTML = arrayNumbers;
 
-let seconds = 5;
+let seconds = 31;
 
 const countdown = setInterval(runCountdown, 1000);
 
-setTimeout(emptyComputerNumbers, 6000);
-setTimeout(delayprompt, 7000);
+setTimeout(emptyComputerNumbers, 32000);
+setTimeout(promptNumbers, 33000);
+
+
+
 
 
 
@@ -54,28 +57,29 @@ function emptyComputerNumbers(){
 }
 
 //confronto degli array
-function compareArrays(arr1, arr2){
+function compareArrays(arr1, arr2, result){
 
- //
+  if(arr1.includes(result)){
+    arr2.push(result);
+  }
+
 }
 
 
 //ritardo prompt
-function delayprompt (){
+function promptNumbers (){
 
   for(let i = 1; i<=5; i++){
     
     let result = parseInt(prompt('Inserisci i numeri che hai memorizzato, uno alla volta'));
     arrayUserNumbers.push(result);
 
-    if(arrayNumbers.includes(result)){
-      numbersFound.push(result);
-    }
+    compareArrays(arrayNumbers, numbersFound, result);
+    
   }
 
+  winOrLoseDom.innerHTML = `Hai indovinato: ${numbersFound}`;
   console.log(arrayUserNumbers);
-  
-  winOrLoseDom.innerHTML += numbersFound;
 
 }
 
