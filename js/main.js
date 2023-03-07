@@ -12,8 +12,11 @@ Consigli del giorno:
 const numbersDom = document.getElementById('numbers');
 const countdownDom = document.getElementById('countdown');
 const endTimeDom = document.getElementById('end-time');
+const winOrLoseDom = document.getElementById('win-or-lose');
 let arrayNumbers = [];
 let arrayUserNumbers = [];
+
+let numbersFound =[];
 
 
 for(let i = 1; i<=5; i++){
@@ -33,7 +36,7 @@ const countdown = setInterval(runCountdown, 1000);
 setTimeout(emptyComputerNumbers, 6000);
 setTimeout(delayprompt, 7000);
 
-let result;
+
 
 
 
@@ -50,18 +53,30 @@ function emptyComputerNumbers(){
 
 }
 
+//confronto degli array
+function compareArrays(arr1, arr2){
+
+ //
+}
+
 
 //ritardo prompt
 function delayprompt (){
 
   for(let i = 1; i<=5; i++){
-    result = parseInt(prompt('Inserisci i numeri che hai memorizzato'));
+    
+    let result = parseInt(prompt('Inserisci i numeri che hai memorizzato, uno alla volta'));
     arrayUserNumbers.push(result);
+
+    if(arrayNumbers.includes(result)){
+      numbersFound.push(result);
+    }
   }
 
   console.log(arrayUserNumbers);
+  
+  winOrLoseDom.innerHTML += numbersFound;
 
-  return result;
 }
 
 
