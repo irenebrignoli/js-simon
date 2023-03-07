@@ -13,6 +13,7 @@ const numbersDom = document.getElementById('numbers');
 const countdownDom = document.getElementById('countdown');
 const endTimeDom = document.getElementById('end-time');
 let arrayNumbers = [];
+let arrayUserNumbers = [];
 
 
 for(let i = 1; i<=5; i++){
@@ -25,15 +26,43 @@ for(let i = 1; i<=5; i++){
 console.log(arrayNumbers);
 numbersDom.innerHTML = arrayNumbers;
 
-let seconds = 31;
+let seconds = 5;
 
 const countdown = setInterval(runCountdown, 1000);
 
-console.log('fuori '+ countdown);
+setTimeout(emptyComputerNumbers, 6000);
+setTimeout(delayprompt, 7000);
+
+let result;
+
 
 
 
 //FUNZIONI
+
+
+//svuota array computer
+function emptyComputerNumbers(){
+
+  numbersDom.innerHTML = "";
+  countdownDom.innerHTML = "";
+  endTimeDom.innerHTML = "";
+
+}
+
+
+//ritardo prompt
+function delayprompt (){
+
+  for(let i = 1; i<=5; i++){
+    result = parseInt(prompt('Inserisci i numeri che hai memorizzato'));
+    arrayUserNumbers.push(result);
+  }
+
+  console.log(arrayUserNumbers);
+
+  return result;
+}
 
 
 //conto alla rovescia
